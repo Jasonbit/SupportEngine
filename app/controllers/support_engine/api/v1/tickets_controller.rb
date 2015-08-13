@@ -16,6 +16,18 @@ module SupportEngine
           end
         end
 
+        def index
+          if params[:q].present?
+            query = params[:q].split(" ").join("%")
+            tickets = Ticket.where("title LIKE ?", "%#{query}%")
+          else
+            tickets = Ticket
+          end
+
+          ticket = ticket.offset(10*params[:p].to_i) if params[:p].to_i > 0
+
+          render json: { tickets: tickets.limit(10) }
+        end
       end
     end
   end
