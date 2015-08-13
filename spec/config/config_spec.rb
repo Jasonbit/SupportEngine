@@ -5,8 +5,6 @@ describe SupportEngine::Configuration do
 
   describe 'user_class' do
     before(:all) do
-      User = Class.new
-
       SupportEngine.configure {|c| c.user_class_name = "User" }
     end
 

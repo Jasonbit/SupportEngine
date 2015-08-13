@@ -1,0 +1,11 @@
+<h1><%= t("support_engine.widget.title") %></h1>
+
+<%= form_for SupportEngine::Ticket.new, url: '/api/v1/tickets'  do |f| %>
+  <div class="se-form">
+    <label for="ticket_title"><%= t("support_engine.widget.label") %></label>
+    <%= f.text_field :title, placeholder: t("support_engine.widget.placeholder") %>
+  </div>
+  <button type="submit" class="se-btn se-btn-submit">
+    <%= t("support_engine.widget.next") %>
+  </button>
+<% end %>

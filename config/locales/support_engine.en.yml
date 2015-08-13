@@ -1,0 +1,14 @@
+# encoding: UTF-8
+
+en:
+
+  # = Support Engine Translations
+  # All translations used in Supporte Engine are inside this support_engine namespace.
+  support_engine:
+    widget:
+      toggle_btn: "Ideas & Help"
+      title: "How may I help you?"
+      label: "Please enter your question or idea:"
+      placeholder: "Briefly describe your question or idea here"
+      next: "Next"
+
