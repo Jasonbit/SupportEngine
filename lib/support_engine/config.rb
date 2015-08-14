@@ -17,5 +17,21 @@ module SupportEngine
     def user_class
       config.user_class_name.constantize
     end
+
+    def email_address=(value)
+      @email_address = value
+    end
+
+    def email_address
+      @email_address ||= "no-reply@supportengine.org"
+    end
+
+    def email_prefix
+      @email_prefix ||= "SupportEngine"
+    end
+
+    def email_prefix=(value)
+      @email_prefix = value
+    end
   end
 end

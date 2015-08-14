@@ -2,7 +2,7 @@ module SupportEngine
   class Ticket < ActiveRecord::Base
     include TicketStates::Checker
 
-    attr_accessible :title, :name, :email, :user_id, :assignee_id, :body
+    attr_accessible :title, :name, :email, :user_id, :assignee_id, :body, :support_type_id
 
     belongs_to :user,      class_name: SupportEngine.config.user_class_name
     belongs_to :assignee,  class_name: SupportEngine.config.user_class_name
@@ -16,6 +16,8 @@ module SupportEngine
 
     validates :name, :email, presence: true, if: ->(t) { t.user.blank? }
 
+    after_create :notify_support_group
+
     def to_json(options = {})
       super(methods: [:url])
     end
@@ -27,6 +29,11 @@ module SupportEngine
 
     def url
       SupportEngine::Engine.routes.url_helpers.api_v1_ticket_path(self)
+    end
+
+    private
+    def notify_support_group
+      support_type.notify!(self)
     end
   end
 end

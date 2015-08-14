@@ -4,5 +4,6 @@ FactoryGirl.define do
     name "Mark Watney"
     email "mark@watney.com"
     state SupportEngine::TicketStates.open
+    association :support_type
   end
 end
