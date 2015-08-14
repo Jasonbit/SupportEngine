@@ -127,6 +127,9 @@ SupportEngine.Toggler.prototype = {
 
   toggle: function(event) {
     $(".se-widget").toggleClass("se-widget-open");
+    if (!$(".se-widget").hasClass("se-widget-open")) {
+      $(".se-widget form").get(0).reset();
+    }
   }
 };
 
