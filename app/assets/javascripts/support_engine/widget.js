@@ -94,15 +94,16 @@ SupportEngine.Widget.prototype = {
   fail: function(data) {
     var json = $.parseJSON(data.responseText);
     for (var field in json) {
-      var felem = this.form.find("#ticket_"+field);
+      if (field === "support_type") { field_name = field+"_id"; }
+      else { field_name = field; }
+
+      var felem = this.form.find("#ticket_"+field_name);
       var errorsField = felem.parent().find(".se-errors");
       var errors = json[field];
 
-      if (errorsField.length > 0) {
-        errorsField.html("");
-      } else {
-        felem.after($("<div>").addClass("se-errors"));
-      }
+      if (errorsField.length > 0) { errorsField.html(""); }
+      else { felem.after($("<div>").addClass("se-errors")); }
+
       errorsField = felem.parent().find(".se-errors");
 
 
