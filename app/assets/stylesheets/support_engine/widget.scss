@@ -31,7 +31,10 @@
 .se-other-fields { margin-top: 1.5em; }
 .se-input-group {
   margin-bottom: 1.5em;
-  &.se-input-query { margin: 0; }
+
+  &.se-input-query {
+    margin: 0;
+  }
 
   .se-input-group {
     display: inline-block;
@@ -49,13 +52,11 @@
 .se-widget{
   position:relative;
   z-index: 89;
-  display:none;
-
+  display: none;
   h1 { font-size: 1.5em; }
 }
 
 .se-widget.se-widget-open {
-  display:block;
   float:left;
   display: block;
   float: left;
@@ -63,7 +64,11 @@
   color: black;
   border: 1px solid black;
   padding: 10px 20px 20px;
+  width: 405px;
 }
+
+
+
 
 .se-similar-question {
   padding: 0;
@@ -80,4 +85,26 @@
   li:hover {
     background-color: #efc674;
   }
+}
+
+.se-error {
+  margin: 0;
+  color: #a94442;
+  font-size: 0.8em;
+  padding: 5px;
+  background-color: #f2dede;
+  border-radius: 0 0 5px 5px;
+  border: 1px solid #ebccd1;
+  border-top: none;
+}
+
+.se-success {
+  margin: 0;
+  font-size: 0.8em;
+  padding: 5px;
+  border-radius: 5px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  margin-bottom: 1.5em;
 }

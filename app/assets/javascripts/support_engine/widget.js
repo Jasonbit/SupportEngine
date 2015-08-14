@@ -61,11 +61,54 @@ SupportEngine.Widget = function(element_id) {
 SupportEngine.Widget.prototype = {
   bind: function() {
     this.next.on("click", this.showForm.bind(this));
+    this.form.on("submit", this.submit.bind(this));
   },
 
   showForm: function(event) {
     $(".se-other-fields").removeClass("se-hidden");
     this.next.addClass("se-hidden");
+  },
+
+  submit: function(event) {
+    var formData = this.form.serialize();
+
+    $.ajax({ type: 'POST',   url:      this.form.attr("action"),
+             data: formData, dataType: 'json',  encode : true })
+    .done(this.success.bind(this))
+    .fail(this.fail.bind(this));
+
+    event.preventDefault();
+  },
+
+  success: function(data) {
+    var message = data.message;
+    this.form.prepend($("<div>").addClass("se-success").html(message));
+
+    setTimeout(function() {
+      $(".se-success").remove();
+      this.form.get(0).reset();
+      this.toggler.toggle();
+    }.bind(this), 500);
+  },
+
+  fail: function(data) {
+    for (var field in data.responseJSON) {
+      var felem = this.form.find("#ticket_"+field);
+      var errorsField = felem.parent().find(".se-errors");
+      var errors = data.responseJSON[field];
+
+      if (errorsField.length > 0) {
+        errorsField.html("");
+      } else {
+        felem.after($("<div>").addClass("se-errors"));
+      }
+      errorsField = felem.parent().find(".se-errors");
+
+      for (var x=0; x < errors.length; x++) {
+        var error = errors[x];
+        errorsField.append($("<p>").addClass("se-error").html(error));
+      }
+    }
   }
 };
 

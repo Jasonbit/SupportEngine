@@ -9,8 +9,8 @@ module SupportEngine
           ticket = Ticket.new(params[:ticket])
           ticket.state = TicketStates.open
           if ticket.save
-            render json: ticket, status: :created,
-                   location: api_v1_ticket_url(ticket)
+            render json: { ticket: ticket, message: t("support_engine.widget.message") },
+                   status: :created, location: api_v1_ticket_url(ticket)
           else
             render json: ticket.errors, status: :unprocessable_entity
           end
