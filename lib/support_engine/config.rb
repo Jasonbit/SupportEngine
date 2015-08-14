@@ -12,7 +12,7 @@ module SupportEngine
   class Configuration
     include ActiveSupport::Configurable
 
-    config_accessor :user_class_name
+    config_accessor :user_class_name, :current_user_method
 
     def user_class
       config.user_class_name.constantize

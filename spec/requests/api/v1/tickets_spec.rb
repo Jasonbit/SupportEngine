@@ -21,7 +21,7 @@ module SupportEngine
           expect(response).to be_success
 
           json = JSON.parse(response.body)
-          expect(json['title']).to match(/wrong/)
+          expect(json['ticket']['title']).to match(/wrong/)
         end
       end
     end

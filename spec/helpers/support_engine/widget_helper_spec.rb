@@ -16,5 +16,21 @@ module SupportEngine
     it 'renders the datatable partial' do
       expect(support_engine_widget).to match(/form/)
     end
+
+    def current_user
+      "this"
+    end
+
+    context "current_user" do
+      it "with a method returns the current user" do
+        SupportEngine.configure {|c| c.current_user_method = "current_user" }
+        expect(support_engine_current_user).to eq(current_user)
+      end
+
+      it "without a method return nil" do
+        SupportEngine.configure {|c| c.current_user_method = nil }
+        expect(support_engine_current_user).to eq(nil)
+      end
+    end
   end
 end

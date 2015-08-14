@@ -23,16 +23,21 @@
           <%= f.text_area :body, placeholder: t("support_engine.widget.body_placeholder") %>
         </div>
 
-        <div class="se-input-group">
+        <% if support_engine_current_user %>
+          <% f.object.user_id = support_engine_current_user.id %>
+          <%= f.hidden_field :user_id %>
+        <% else %>
           <div class="se-input-group">
-            <label for="ticket_name"><%= t("support_engine.widget.name") %></label>
-            <%= f.text_field :name %>
+            <div class="se-input-group">
+              <label for="ticket_name"><%= t("support_engine.widget.name") %></label>
+              <%= f.text_field :name %>
+            </div>
+            <div class="se-input-group">
+              <label for="ticket_email"><%= t("support_engine.widget.email") %></label>
+              <%= f.text_field :email %>
+            </div>
           </div>
-          <div class="se-input-group">
-            <label for="ticket_email"><%= t("support_engine.widget.email") %></label>
-            <%= f.text_field :email %>
-          </div>
-        </div>
+        <% end %>
         <div class="se-input-group">
         <button type="submit" class="se-btn se-btn-submit">
           <%= t("support_engine.widget.submit") %>
