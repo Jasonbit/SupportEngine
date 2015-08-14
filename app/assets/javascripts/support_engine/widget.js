@@ -28,14 +28,20 @@ SupportEngine.Query.prototype = {
   done: function(data) {
     var tickets = $(".se-similar-question").html("");
 
-    for (var x = 0; x < data.tickets.length; x++) {
-      var ticket = data.tickets[x];
-      var link = $("<a>").html(ticket.title).attr("href", ticket.url);
-      tickets.append($("<li>").append(link));
+    if (data.tickets.length > 0) {
+      tickets.removeClass("se-hidden");
+      for (var x = 0; x < data.tickets.length; x++) {
+        var ticket = data.tickets[x];
+        var link = $("<a>").html(ticket.title).attr("href", ticket.url);
+        tickets.append($("<li>").append(link));
+      }
+    } else {
+      tickets.addClass("se-hidden");
     }
   },
 
   value: function() { return this.element.val(); }
+
 };
 
 SupportEngine.Widget = function(element_id) {
@@ -47,10 +53,34 @@ SupportEngine.Widget = function(element_id) {
   this.form       = this.element.find("form");
   this.queryField = this.element.find(".se-search-field");
   this.query      = new SupportEngine.Query(this.queryField, this.form.attr("action"));
+  this.toggler    = new SupportEngine.Toggler();
+  this.next       = this.element.find(".se-btn-next");
+  this.bind();
 };
 
 SupportEngine.Widget.prototype = {
   bind: function() {
+    this.next.on("click", this.showForm.bind(this));
+  },
+
+  showForm: function(event) {
+    $(".se-other-fields").removeClass("se-hidden");
+    this.next.addClass("se-hidden");
+  }
+};
+
+SupportEngine.Toggler = function() {
+  this.element = $(".se-widget-toggler");
+  this.bind();
+};
+
+SupportEngine.Toggler.prototype = {
+  bind: function() {
+    this.element.on("click", this.toggle.bind());
+  },
+
+  toggle: function(event) {
+    $(".se-widget").toggleClass("se-widget-open");
   }
 };
 

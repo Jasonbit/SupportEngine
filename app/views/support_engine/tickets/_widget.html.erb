@@ -1,14 +1,44 @@
-<div class="se-widget">
-  <h1><%= t("support_engine.widget.title") %></h1>
+<div class="se-widget-container">
+  <button type="button" class="se-widget-toggler">
+    <%= t("support_engine.widget.toggle_btn") %>
+  </button>
 
-  <%= form_for SupportEngine::Ticket.new, url: SupportEngine::Engine.routes.url_helpers.api_v1_tickets_path  do |f| %>
-    <div class="se-form">
-      <label for="ticket_title"><%= t("support_engine.widget.label") %></label>
-      <%= f.text_field :title, class: "se-search-field", placeholder: t("support_engine.widget.placeholder") %>
-    </div>
-    <ul class="se-similar-question"></ul>
-    <button type="submit" class="se-btn se-btn-submit">
-      <%= t("support_engine.widget.next") %>
-    </button>
-  <% end %>
+  <div class="se-widget">
+    <h1><%= t("support_engine.widget.title") %></h1>
+
+    <%= form_for SupportEngine::Ticket.new, url: SupportEngine::Engine.routes.url_helpers.api_v1_tickets_path  do |f| %>
+      <div class="se-input-group se-input-query">
+        <label for="ticket_title"><%= t("support_engine.widget.label") %></label>
+        <%= f.text_field :title, class: "se-search-field", placeholder: t("support_engine.widget.placeholder") %>
+      </div>
+      <ul class="se-similar-question se-hidden"></ul>
+
+      <button type="button" class="se-btn se-btn-next">
+        <%= t("support_engine.widget.next") %>
+      </button>
+
+      <div class="se-other-fields se-hidden">
+        <div class="se-input-group">
+          <label for="ticket_body"><%= t("support_engine.widget.body") %></label>
+          <%= f.text_area :body, placeholder: t("support_engine.widget.body_placeholder") %>
+        </div>
+
+        <div class="se-input-group">
+          <div class="se-input-group">
+            <label for="ticket_name"><%= t("support_engine.widget.name") %></label>
+            <%= f.text_field :name %>
+          </div>
+          <div class="se-input-group">
+            <label for="ticket_email"><%= t("support_engine.widget.email") %></label>
+            <%= f.text_field :email %>
+          </div>
+        </div>
+        <div class="se-input-group">
+        <button type="submit" class="se-btn se-btn-submit">
+          <%= t("support_engine.widget.submit") %>
+        </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

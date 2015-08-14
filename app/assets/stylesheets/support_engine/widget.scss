@@ -1,0 +1,83 @@
+.se-widget-container {
+  position: absolute;
+  font-family: Verdana;
+}
+
+.se-widget-toggler {
+  background-color: black;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transform: rotate(90deg);
+  transform-origin: bottom left;
+  padding: 5px 10px;
+  font-size: 14px;
+  z-index: 99;
+  position: relative;
+  width: 105px;
+  float: right;
+}
+
+.se-hidden {
+  display: none;
+}
+
+.se-input-group label {
+  display: block;
+  font-size: 0.8em;
+}
+
+.se-other-fields { margin-top: 1.5em; }
+.se-input-group {
+  margin-bottom: 1.5em;
+  &.se-input-query { margin: 0; }
+
+  .se-input-group {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  textarea {width: 100%; }
+
+  input {
+    height: 20px;
+    padding: 0 5px
+  }
+}
+
+.se-widget{
+  position:relative;
+  z-index: 89;
+  display:none;
+
+  h1 { font-size: 1.5em; }
+}
+
+.se-widget.se-widget-open {
+  display:block;
+  float:left;
+  display: block;
+  float: left;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 20px 20px;
+}
+
+.se-similar-question {
+  padding: 0;
+  list-style: none;
+  font-size: 0.8em;
+  background-color: wheat;
+  height: 95px;
+  overflow: auto;
+
+  li {
+    padding: 5px;
+  }
+
+  li:hover {
+    background-color: #efc674;
+  }
+}

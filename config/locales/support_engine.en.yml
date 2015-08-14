@@ -10,5 +10,10 @@ en:
       title: "How may I help you?"
       label: "Please enter your question or idea:"
       placeholder: "Briefly describe your question or idea here"
+      body: "Details"
+      body_placeholder: "Fill in the details here. Please try to be as specific as possible"
+      name: "Name"
+      email: "Your email address"
+      submit: "Submit"
       next: "Next"
 
