@@ -11,19 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150813184018) do
+ActiveRecord::Schema.define(:version => 20150814013842) do
+
+  create_table "support_engine_support_types", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "support_engine_tickets", :force => true do |t|
-    t.string   "title",       :null => false
+    t.string   "title",           :null => false
     t.string   "body"
     t.integer  "user_id"
     t.integer  "assignee_id"
     t.string   "name"
     t.string   "email"
-    t.integer  "state",       :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "state",           :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "support_type_id"
   end
+
+  add_index "support_engine_tickets", ["support_type_id"], :name => "index_support_engine_tickets_on_support_type_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

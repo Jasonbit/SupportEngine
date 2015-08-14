@@ -6,6 +6,7 @@ en:
   # All translations used in Supporte Engine are inside this support_engine namespace.
   support_engine:
     widget:
+      support_type: "Support Type"
       message: "Ticket created successfully"
       toggle_btn: "Ideas & Help"
       title: "How may I help you?"

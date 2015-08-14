@@ -19,6 +19,10 @@
 
       <div class="se-other-fields se-hidden">
         <div class="se-input-group">
+          <label for="ticket_support_type_id"><%= t("support_engine.widget.support_type") %></label>
+          <%= f.collection_select(:support_type_id, SupportEngine::SupportType.all, :id, :name) %>
+        </div>
+        <div class="se-input-group">
           <label for="ticket_body"><%= t("support_engine.widget.body") %></label>
           <%= f.text_area :body, placeholder: t("support_engine.widget.body_placeholder") %>
         </div>
