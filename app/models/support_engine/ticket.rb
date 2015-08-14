@@ -31,6 +31,14 @@ module SupportEngine
       SupportEngine::Engine.routes.url_helpers.api_v1_ticket_path(self)
     end
 
+    def name
+      user ? user.name : name
+    end
+
+    def email
+      user ? user.email : email
+    end
+
     private
     def notify_support_group
       support_type.notify!(self)

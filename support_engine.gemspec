@@ -7,11 +7,11 @@ require "support_engine/version"
 Gem::Specification.new do |s|
   s.name        = "support_engine"
   s.version     = SupportEngine::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of SupportEngine."
-  s.description = "TODO: Description of SupportEngine."
+  s.authors     = ["Gabriel Rios"]
+  s.email       = ["gabrielfalcaorios@gmail.com"]
+  s.homepage    = "http://www.orbitalimpact.com"
+  s.summary     = "A simple open source helpdesk engine for rails apps"
+  s.description  = "A simple open source helpdesk engine for rails apps"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]

@@ -92,10 +92,11 @@ SupportEngine.Widget.prototype = {
   },
 
   fail: function(data) {
-    for (var field in data.responseJSON) {
+    var json = $.parseJSON(data.responseText);
+    for (var field in json) {
       var felem = this.form.find("#ticket_"+field);
       var errorsField = felem.parent().find(".se-errors");
-      var errors = data.responseJSON[field];
+      var errors = json[field];
 
       if (errorsField.length > 0) {
         errorsField.html("");
@@ -103,6 +104,7 @@ SupportEngine.Widget.prototype = {
         felem.after($("<div>").addClass("se-errors"));
       }
       errorsField = felem.parent().find(".se-errors");
+
 
       for (var x=0; x < errors.length; x++) {
         var error = errors[x];
