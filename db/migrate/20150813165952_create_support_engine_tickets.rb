@@ -11,6 +11,7 @@ class CreateSupportEngineTickets < ActiveRecord::Migration
       t.string :email
 
       t.integer :state, null: false
+      t.integer :priority, null: false
 
       t.timestamps
     end

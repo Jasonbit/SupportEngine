@@ -6,9 +6,17 @@
   <%= javascript_include_tag "support_engine/application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="se">
+  <div class="se-wrapper">
+    <nav class="se-navigation">
+      <ul>
+        <li><%= link_to t("support_engine.menu.tickets"), SupportEngine::Engine.routes.url_helpers.tickets_path %></li>
+        <li><%= link_to t("support_engine.menu.type"), SupportEngine::Engine.routes.url_helpers.support_types_path %></li>
+      </ul>
+    </nav>
 
-<%= yield %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

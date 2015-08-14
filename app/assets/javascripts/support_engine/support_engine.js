@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require ./support_engine.list
+//= require ./support_engine.widget
+

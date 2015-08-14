@@ -1,0 +1,50 @@
+
+<div class="se-show">
+  <div class="se-left-form">
+    <%= form_for @ticket do |f| %>
+      <div class="se-input-group">
+        <label for="ticket_assignee_id"><%= t("support_engine.widget.assignee") %></label>
+        <%= f.collection_select(:assignee_id, SupportEngine.config.user_class.all, :id, :name, include_blank: true) %>
+      </div>
+
+      <div class="se-input-group">
+        <div class="se-input-group">
+          <label for="ticket_support_type_id"><%= t("support_engine.widget.support_type") %></label>
+          <%= f.collection_select(:support_type_id, SupportEngine::SupportType.all, :id, :name) %>
+        </div>
+
+        <div class="se-input-group">
+          <label for="ticket_support_type_id"><%= t("support_engine.widget.priority") %></label>
+          <%= f.select(:support_type_id, SupportEngine::TicketPriority.priorities) %>
+        </div>
+      </div>
+      <div class="se-input-group">
+        <button type="submit" class="se-btn se-btn-submit">
+          <%= t("support_engine.widget.submit") %>
+        </button>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="se-main">
+    <div class="se-block">
+      <h1><%= @ticket.title %></h1>
+      <div class="se-subtitle">
+        <%= l(@ticket.created_at, format: :long) %> - <%= @ticket.name %> <%= "<#{@ticket.email}>" if @ticket.email %>
+      </div>
+
+      <div class="se-body">
+        <%= @ticket.body %>
+      </div>
+
+      <button type="button" class="se-btn">
+        Comment
+      </button>
+
+      <%= render @ticket.comments %>
+    </div>
+
+
+  </div>
+</div>

@@ -5,6 +5,25 @@ en:
   # = Support Engine Translations
   # All translations used in Supporte Engine are inside this support_engine namespace.
   support_engine:
+    menu:
+      tickets: "Tickets"
+      type: "Types"
+    ticket_state:
+      new: "New"
+      open: "Open"
+      waiting: "Waiting"
+      solved: "Solved"
+      not_fixable: "Won't Fix"
+      unreachable: "Unreachable"
+      bug: "Bug"
+    ticket:
+      priority: Priority
+      title: Subject
+      name: Requester
+      updated_at: Updated
+      support_type: Group
+      assignee: Assignee
+      state: State
     widget:
       support_type: "Support Type"
       message: "Ticket created successfully"

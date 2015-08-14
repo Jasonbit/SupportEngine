@@ -1,0 +1,30 @@
+<div class="se-filter">
+  <%= form_for :query, method: :get,
+    url: SupportEngine::Engine.routes.url_helpers.api_v1_tickets_path  do |f| %>
+
+    <div class="se-btn-group">
+      <label><%= t("support_engine.ticket.priority") %>:</label>
+      <% SupportEngine::TicketPriority.priorities.each do |name, label, value| %>
+        <span class="se-btn-state">
+          <%= check_box_tag 'query_priority[]', value, false, id: "query_priority_#{name}" -%>
+          <label for="query_priority_<%= name %>" class="<%= label %>">
+            <%= raw t("support_engine.ticket_priority.#{name}") %>
+          </label>
+        </span>
+      <% end %>
+    </div>
+
+    <div class="se-btn-group">
+      <label><%= t("support_engine.ticket.state") %>:</label>
+      <% SupportEngine::TicketStates.states.each do |name, label, value| %>
+        <span class="se-btn-state">
+          <%= check_box_tag 'query_state[]', value, false, id: "query_state_#{name}" -%>
+          <label for="query_state_<%= name %>" class="label-default">
+            <%= raw t("support_engine.ticket_state.#{name}") %>
+          </label>
+        </span>
+      <% end %>
+    </div>
+
+  <% end %>
+</div>

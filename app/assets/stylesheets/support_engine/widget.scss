@@ -32,6 +32,10 @@
 .se-input-group {
   margin-bottom: 1.5em;
 
+  width: 100%;
+
+  &:last-child { margin-bottom: 0; }
+
   &.se-input-query {
     margin: 0;
   }
@@ -39,13 +43,15 @@
   .se-input-group {
     display: inline-block;
     margin-bottom: 0;
+    width: 49%;
   }
 
   textarea {width: 100%; }
 
-  input {
+  input, select {
     height: 20px;
-    padding: 0 5px
+    padding: 0 5px;
+    width: 100%;
   }
 }
 

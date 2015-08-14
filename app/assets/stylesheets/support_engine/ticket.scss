@@ -1,0 +1,32 @@
+
+.se-left-form, .se-block {
+  background-color: #f8f8f8;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  float: left;
+  width: 20%;
+
+  padding: 10px;
+}
+
+.se-block {
+  width: 100%;
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  .se-subtitle { font-size: 12px; margin-bottom: 1.5em }
+}
+
+.se-main {
+  width: 75%;
+  margin-left: 1%;
+  min-height: 100px;
+  float:left;
+}
+
+.se-btn {
+  float: right;
+}
+

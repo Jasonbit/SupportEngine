@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20150814013842) do
     t.string   "name"
     t.string   "email"
     t.integer  "state",           :null => false
+    t.integer  "priority",        :null => false
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "support_type_id"

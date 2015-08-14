@@ -1,0 +1,17 @@
+<tr>
+  <% [ :priority, :id, :title, :name, :updated_at, :support_type_name, :assignee_name].each do |field| %>
+    <td>
+      <% if field == :priority %>
+        <span class="label <%= SupportEngine::TicketPriority.label(ticket.priority)  %>">
+          <%= ticket.priority_name %>
+        </span>
+      <% elsif field == :updated_at %>
+        <%= l(ticket.updated_at, format: :long) %>
+      <% elsif field == :title %>
+        <%= link_to ticket.title, ticket %>
+      <% else %>
+        <%= ticket.send(field) %>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

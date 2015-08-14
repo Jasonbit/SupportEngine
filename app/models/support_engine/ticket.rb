@@ -9,14 +9,22 @@ module SupportEngine
 
     belongs_to :support_type, inverse_of: :tickets
 
+    has_many :comments
+
     validates :title,  presence: true
     validates :support_type, presence: true
     validates :state,  presence: true,
       inclusion: SupportEngine::TicketStates.state_keys
 
+    validates :priority, presence: true,
+      inclusion: SupportEngine::TicketPriority.priorities_keys
+
     validates :name, :email, presence: true, if: ->(t) { t.user.blank? }
 
     after_create :notify_support_group
+
+    delegate :name,  to: :support_type,  prefix: true
+    delegate :name,  to: :assignee,      prefix: true, allow_nil: true
 
     def to_json(options = {})
       super(methods: [:url])
@@ -37,6 +45,10 @@ module SupportEngine
 
     def email
       user ? user.email : read_attribute(:email)
+    end
+
+    def priority_name
+      SupportEngine::TicketPriority.name(priority)
     end
 
     private

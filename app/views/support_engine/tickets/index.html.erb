@@ -1,0 +1,15 @@
+<%= render "filters" %>
+<table class="se-table">
+  <thead>
+    <tr>
+      <% [ :priority, :id, :title, :name, :updated_at, :support_type, :assignee].each do |field| %>
+        <th><%= t("support_engine.ticket.#{field}") %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @tickets %>
+  </tbody>
+
+</table>

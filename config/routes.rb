@@ -4,4 +4,7 @@ SupportEngine::Engine.routes.draw do
       resources :tickets
     end
   end
+
+  resources :tickets
+  resource :support_types
 end

@@ -1,0 +1,33 @@
+.se-navigation {
+  background-color: #f8f8f8;
+  border: 1px solid #e7e7e7;
+  overflow: auto;
+  margin-bottom: 4em;
+  border-radius: 4px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1.5em;
+
+    li {
+      position: relative;
+      display: block;
+      float:left;
+
+      a {
+        position: relative;
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+        color: #777;
+
+        &:hover {
+          background: #ccc;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

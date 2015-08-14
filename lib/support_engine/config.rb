@@ -12,10 +12,18 @@ module SupportEngine
   class Configuration
     include ActiveSupport::Configurable
 
-    config_accessor :user_class_name, :current_user_method
+    config_accessor :current_user_method
+
+    def user_class_name=(value)
+      @user_class_name = value
+    end
+
+    def user_class_name
+      @user_class_name
+    end
 
     def user_class
-      config.user_class_name.constantize
+      @user_class_name.constantize
     end
 
     def email_address=(value)

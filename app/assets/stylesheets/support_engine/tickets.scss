@@ -1,0 +1,57 @@
+.se {
+  background: #def1de;
+}
+.se-wrapper {
+  width: 100%;
+  font-family: sans-serif;
+}
+
+@media all and (min-width: 1200px) {
+  .se-wrapper {
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+.label {
+  color: white;
+  padding: 5px;
+  font-size: 0.5em;
+  font-weight: bold;
+  font-family: Verdana;
+
+  &.label-default { background: grey; }
+  &.label-warning { background: #f0ad4e; }
+  &.label-danger { background: #d9534f; }
+  &.label-info { background: #5bc0de; }
+}
+
+.se-table {
+  width: 100%;
+  font-family: Verdana;
+  font-size: 1em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #bbb;
+
+  th, td {
+    padding: 5px 10px 10px;
+  }
+
+  th {
+    background: #CCCCCC;
+  }
+
+  tr:nth-child(n) {
+    background: #ffffff;
+  }
+
+  tr:nth-child(2n) {
+    background: #efefef;
+  }
+
+  tr:hover { background: #bbe1bb; }
+  tr td { cursor: pointer; }
+
+  a { color: inherit; text-decoration: none; }
+}
