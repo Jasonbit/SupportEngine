@@ -32,5 +32,26 @@ module SupportEngine
         expect(subject).to_not be_solved
       end
     end
+
+    context "Getters" do
+      let(:user) { User.new(name: "User", email: "user@email.com") }
+      it "#name" do
+        t = Ticket.new
+        expect(t.name).to be_nil
+        t.name = "Gabriel"
+        expect(t.name).to eq("Gabriel")
+        t.user = user
+        expect(t.name).to eq("User")
+      end
+
+      it "#email" do
+        t = Ticket.new
+        expect(t.email).to be_nil
+        t.email = "gabriel@email.com"
+        expect(t.email).to eq("gabriel@email.com")
+        t.user = user
+        expect(t.email).to eq("user@email.com")
+      end
+    end
   end
 end

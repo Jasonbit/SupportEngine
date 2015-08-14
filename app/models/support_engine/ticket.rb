@@ -32,11 +32,11 @@ module SupportEngine
     end
 
     def name
-      user ? user.name : name
+      user ? user.name : read_attribute(:name)
     end
 
     def email
-      user ? user.email : email
+      user ? user.email : read_attribute(:email)
     end
 
     private

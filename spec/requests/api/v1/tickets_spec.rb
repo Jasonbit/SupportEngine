@@ -18,7 +18,7 @@ module SupportEngine
           support_type = FactoryGirl.create(:support_type)
           post '/help/api/v1/tickets', { ticket: { title: "Something wrong",
                                                    support_type_id: support_type.id,
-                                                  name: "Gabriel", email: "gabriel@example.com"} }
+                                                   name: "Gabriel", email: "gabriel@example.com"} }
 
           expect(response).to be_success
 
