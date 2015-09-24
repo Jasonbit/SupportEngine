@@ -1,0 +1,14 @@
+<%= form_for SupportEngine::Comment.new,
+  url: SupportEngine::Engine.routes.url_helpers.comments_path do |f| %>
+
+  <div class="se-input-group">
+    <%# <label for="comment_content"><%= t("support_engine.comment.content") %1></label> %>
+    <%= f.text_area :content, rows: 5, placeholder: t("support_engine.comment.content_placeholder") %>
+  </div>
+  <%= f.hidden_field :ticket_id %>
+
+
+  <button type="subit" class="se-btn se-btn-submit">
+    <%= t("support_engine.comment.submit") %>
+  </button>
+<% end %>

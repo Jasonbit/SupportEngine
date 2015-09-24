@@ -38,4 +38,6 @@ en:
       submit: "Submit"
       next: "Next"
       confirmation: "Do not fill this"
+    comment:
+      content_placeholder: "Comment ..."
 

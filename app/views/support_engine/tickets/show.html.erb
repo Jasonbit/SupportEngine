@@ -41,13 +41,15 @@
       <div class="se-body">
         <%= @ticket.body %>
       </div>
-
-      <button type="button" class="se-btn">
-        Comment
-      </button>
-
-      <%= render @ticket.comments %>
     </div>
+
+    <div class="se-block">
+      <div class="se-comment-form">
+        <%= render "support_engine/comments/form" %>
+      </div>
+    </div>
+
+    <%= render @ticket.comments %>
 
 
   </div>

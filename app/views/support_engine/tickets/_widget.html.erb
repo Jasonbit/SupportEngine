@@ -6,7 +6,7 @@
   <div class="se-widget">
     <h1><%= t("support_engine.widget.title") %></h1>
 
-    <%= form_for SupportEngine::Ticket.new, :honeypot => true, url: SupportEngine::Engine.routes.url_helpers.api_v1_tickets_path  do |f| %>
+    <%= form_for SupportEngine::Ticket.new, url: SupportEngine::Engine.routes.url_helpers.api_v1_tickets_path  do |f| %>
       <div class="se-input-group se-input-query">
         <label for="ticket_title"><%= t("support_engine.widget.label") %></label>
         <%= f.text_field :title, class: "se-search-field", placeholder: t("support_engine.widget.placeholder") %>
@@ -27,7 +27,7 @@
           <%= f.text_area :body, placeholder: t("support_engine.widget.body_placeholder") %>
         </div>
 
-        <div class="se-input-group se-input-hidden">
+        <div class="se-input-group se-hidden">
           <label for="confirmation"><%= t("support_engine.widget.confirmation") %></label>
           <%= text_field_tag :confirmation %>
         </div>
