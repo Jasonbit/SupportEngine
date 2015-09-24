@@ -17,3 +17,4 @@ gem "jquery-rails"
 # gem 'debugger'
 
 gem 'simplecov', :require => false, :group => :test
+gem 'test-unit'

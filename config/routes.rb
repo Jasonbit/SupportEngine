@@ -7,4 +7,6 @@ SupportEngine::Engine.routes.draw do
 
   resources :tickets
   resource :support_types
+
+  root to: "tickets#index"
 end

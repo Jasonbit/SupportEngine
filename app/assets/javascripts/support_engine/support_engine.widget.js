@@ -94,22 +94,25 @@ SupportEngine.Widget.prototype = {
   fail: function(data) {
     var json = $.parseJSON(data.responseText);
     for (var field in json) {
-      if (field === "support_type") { field_name = field+"_id"; }
-      else { field_name = field; }
+      if (field === "captcha") {
+        $(".new_ticket").append($("<div>").addClass("se-errors").append($("<p>").addClass("se-error").html("Failed Captcha")));
+      } else {
+        if (field === "support_type") { field_name = field+"_id"; }
+        else { field_name = field; }
 
-      var felem = this.form.find("#ticket_"+field_name);
-      var errorsField = felem.parent().find(".se-errors");
-      var errors = json[field];
+        var felem = this.form.find("#ticket_"+field_name);
+        var errorsField = felem.parent().find(".se-errors");
+        var errors = json[field];
 
-      if (errorsField.length > 0) { errorsField.html(""); }
-      else { felem.after($("<div>").addClass("se-errors")); }
+        if (errorsField.length > 0) { errorsField.html(""); }
+        else { felem.after($("<div>").addClass("se-errors")); }
 
-      errorsField = felem.parent().find(".se-errors");
+        errorsField = felem.parent().find(".se-errors");
 
-
-      for (var x=0; x < errors.length; x++) {
-        var error = errors[x];
-        errorsField.append($("<p>").addClass("se-error").html(error));
+        for (var x=0; x < errors.length; x++) {
+          var error = errors[x];
+          errorsField.append($("<p>").addClass("se-error").html(error));
+        }
       }
     }
   }

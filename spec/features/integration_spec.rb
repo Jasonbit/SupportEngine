@@ -29,4 +29,14 @@ RSpec.describe "Integration Test", type: :feature, js: true do
 
     expect(page).to have_css(".se-success")
   end
+
+  it "honeypot captcha" do
+    fill_in I18n.t("support_engine.widget.name"), with: "Name"
+    fill_in I18n.t("support_engine.widget.email"), with: "name@email.com"
+    fill_in I18n.t("support_engine.widget.confirmation"), with: "Confirm"
+
+    click_button "Submit"
+
+    expect(page).to have_css(".se-errors")
+  end
 end
