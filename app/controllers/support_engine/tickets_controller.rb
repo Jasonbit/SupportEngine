@@ -9,5 +9,17 @@ module SupportEngine
     def show
       @ticket = Ticket.find(params[:id])
     end
+
+    def update
+      @ticket = Ticket.find(params[:id])
+
+      respond_to do |fmt|
+        if @ticket.update_attributes(params[:ticket])
+          fmt.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
+        else
+          fmt.html { render action: "show" }
+        end
+      end
+    end
   end
 end

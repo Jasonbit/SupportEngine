@@ -8,14 +8,18 @@
       </div>
 
       <div class="se-input-group">
+        <label for="ticket_support_type_id"><%= t("support_engine.widget.support_type") %></label>
+        <%= f.collection_select(:support_type_id, SupportEngine::SupportType.all, :id, :name) %>
+      </div>
+      <div class="se-input-group">
         <div class="se-input-group">
-          <label for="ticket_support_type_id"><%= t("support_engine.widget.support_type") %></label>
-          <%= f.collection_select(:support_type_id, SupportEngine::SupportType.all, :id, :name) %>
+          <label for="ticket_priority"><%= t("support_engine.widget.priority") %></label>
+          <%= f.select(:priority, SupportEngine::TicketPriority.priorities) %>
         </div>
 
         <div class="se-input-group">
-          <label for="ticket_support_type_id"><%= t("support_engine.widget.priority") %></label>
-          <%= f.select(:support_type_id, SupportEngine::TicketPriority.priorities) %>
+          <label for="ticket_state"><%= t("support_engine.widget.state") %></label>
+          <%= f.select(:state, SupportEngine::TicketStates.states) %>
         </div>
       </div>
       <div class="se-input-group">
